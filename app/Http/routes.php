@@ -11,7 +11,12 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+
+Route::get('/doc', 'DocController@index');
+
+Route::get('/', function () {
+    return view('home');
+});
 
 Route::get('home', 'HomeController@index');
 
@@ -20,16 +25,16 @@ Route::get('services/two-datatables', 'ServiceController@getUsersDataTables');
 Route::get('services/two-datatables/posts', 'ServiceController@getPostsDataTables');
 
 Route::controllers([
-    'auth'       => 'Auth\AuthController',
-    'password'   => 'Auth\PasswordController',
-    'fluent'     => 'FluentController',
-    'eloquent'   => 'EloquentController',
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+    'fluent' => 'FluentController',
+    'eloquent' => 'EloquentController',
     'collection' => 'CollectionController',
-    'html'       => 'HtmlBuilderController',
-    'sitemap'    => 'SitemapController',
-    'buttons'    => 'ButtonsController',
-    'services'   => 'ServiceController',
-    'relation'   => 'RelationController',
+    'html' => 'HtmlBuilderController',
+    'sitemap' => 'SitemapController',
+    'buttons' => 'ButtonsController',
+    'services' => 'ServiceController',
+    'relation' => 'RelationController',
 ]);
 
 Route::resource('users', 'UsersController');
